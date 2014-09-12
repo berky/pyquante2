@@ -24,7 +24,7 @@ class twoe_integrals_compressed(object):
     """
     >>> from pyquante2.geo.samples import h
     >>> from pyquante2.basis.basisset import basisset
-    >>> bfs = basisset(h,'sto3g')
+    >>> bfs = basisset(h,'sto-3g')
     >>> twoe_integrals_compressed(bfs)
     array([ 0.77460594])
     """
@@ -32,7 +32,7 @@ class twoe_integrals_compressed(object):
         nbf = self.nbf = len(bfs)
         self.totlen = nbf*(nbf+1)*(nbf*nbf+nbf+2)/8
         self._2e_ints = np.empty(self.totlen,'d')
-        
+
         for i,j,k,l in iiterator(nbf):
             self._2e_ints[iindex(i,j,k,l)] = ERI(bfs[i],bfs[j],bfs[k],bfs[l])
         return
@@ -83,7 +83,7 @@ class twoe_integrals(object):
     """
     >>> from pyquante2.geo.samples import h
     >>> from pyquante2.basis.basisset import basisset
-    >>> bfs = basisset(h,'sto3g')
+    >>> bfs = basisset(h,'sto-3g')
     >>> twoe_integrals(bfs)
     array([ 0.77460594])
     """
@@ -91,7 +91,7 @@ class twoe_integrals(object):
         nbf = self.nbf = len(bfs)
         self._2e_ints = np.empty((nbf,nbf,nbf,nbf),'d')
         ints = self._2e_ints
-        
+
         for i,j,k,l in iiterator(nbf):
             ints[i,j,k,l] = ints[j,i,k,l] = ints[i,j,l,k] = ints[j,i,l,k] = \
                             ints[k,l,i,j] = ints[l,k,i,j] = ints[k,l,j,i] = \
@@ -110,12 +110,12 @@ class twoe_integrals(object):
     def get_j(self,D): return np.einsum('kl,ijkl->ij',D,self._2e_ints)
     def get_k(self,D): return np.einsum('ij,ikjl->kl',D,self._2e_ints)
     def get_2jk(self,D): return 2*self.get_j(D)-self.get_k(D)
-                    
+
 class onee_integrals(object):
     """
     >>> from pyquante2.geo.samples import h
     >>> from pyquante2.basis.basisset import basisset
-    >>> bfs = basisset(h,'sto3g')
+    >>> bfs = basisset(h,'sto-3g')
     >>> i1 = onee_integrals(bfs,h)
     >>> i1.S
     array([[ 1.]])
@@ -135,7 +135,7 @@ class onee_integrals(object):
             self.T[i,j] = self.T[j,i] = T(ibf,jbf)
             self.V[i,j] = self.V[j,i] = sum(at.Z*V(ibf,jbf,at.r) for at in geo)
         return
-        
+
 
 def iiterator(nbf):
     """
@@ -179,7 +179,7 @@ def iindex(i,j,k,l):
     kl = (k*(k+1))//2+l
     if ij < kl: ij,kl = kl,ij
     return (ij*(ij+1))//2+kl
-        
+
 
 if __name__ == '__main__':
     import doctest; doctest.testmod()

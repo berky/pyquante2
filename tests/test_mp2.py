@@ -3,7 +3,7 @@ from pyquante2 import rhf,basisset,h2,mp2
 
 class test_mp2(unittest.TestCase):
     def test_h2(self):
-        bfs = basisset(h2,'6-31g**')
+        bfs = basisset(h2,'6-31gss')
         solver=rhf(h2,bfs)
         solver.converge()
         nvirt = len(bfs)-h2.nocc()

@@ -9,7 +9,7 @@ from pyquante2.utils import trace2,geigh,dmat
 from pyquante2.ints.integrals import onee_integrals, twoe_integrals
 from pyquante2.ints.two import ERI
 
-def scf_simple(geo,basisname='sto3g',maxiter=25,verbose=False):
+def scf_simple(geo,basisname='sto-3g',maxiter=25,verbose=False):
     bfs = basisset(geo,basisname)
     i1 = onee_integrals(bfs,geo)
     i2 = twoe_integrals(bfs)

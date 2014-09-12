@@ -37,17 +37,17 @@ def line(origin,destination,npts=50):
 
 def test_plot_bfs():
     from pyquante2 import basisset,h2
-    bfs = basisset(h2,'sto3g')
+    bfs = basisset(h2,'sto-3g')
     points = line((0,0,-5),(0,0,5))
     lineplot_bfs(points,bfs,True)
     return
 
 def test_plot_orbs():
     from pyquante2 import basisset,h2
-    bfs = basisset(h2,'sto3g')
+    bfs = basisset(h2,'sto-3g')
     orbs = np.array([[1.0,1.0],
                      [1.0,-1.0]],'d')
-    
+
     zvals = np.linspace(-5,5)
     points = line((0,0,-5),(0,0,5))
     lineplot_orbs(points,orbs,bfs,True)
@@ -57,4 +57,3 @@ if __name__ == '__main__':
     test_plot_orbs()
     #test_plot_bfs()
 
-        

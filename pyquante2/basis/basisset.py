@@ -2,7 +2,7 @@
 Basis set constructor
 
 >>> from pyquante2.geo.samples import h
->>> bfs = basisset(h,'sto3g')
+>>> bfs = basisset(h,'sto-3g')
 >>> bfs
 cgbf((0.0, 0.0, 0.0),(0, 0, 0),[3.42525091, 0.62391373, 0.1688554],[0.1543289707029839, 0.5353281424384733, 0.44463454202535485])
 >>> bfs.shells
@@ -32,8 +32,7 @@ class shell(object):
         return "%s shell: %s, %s" % (am2sym[self.am], self.exps, self.coefs)
 
 class basisset(object):
-
-    def __init__(self, atoms, name='sto3g', **kwargs):
+    def __init__(self,atoms,name='sto-3g',**kwargs):
         self.bfs = []
         self.shells = []
         self.name = name
