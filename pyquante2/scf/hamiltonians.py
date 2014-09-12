@@ -62,7 +62,7 @@ class rhf(hamiltonian):
     """
     >>> from pyquante2.geo.samples import h2
     >>> from pyquante2.basis.basisset import basisset
-    >>> bfs = basisset(h2,'sto3g')
+    >>> bfs = basisset(h2,'sto-3g')
     >>> h2_rhf = rhf(h2,bfs)
     >>> ens = h2_rhf.converge(SCFIterator)
     >>> np.isclose(h2_rhf.energy,-1.11709942949)
@@ -120,7 +120,7 @@ class rohf(rhf):
     """Hamiltonian for ROHF calculations. Adds shells information
     >>> from pyquante2.geo.samples import h2
     >>> from pyquante2.basis.basisset import basisset
-    >>> bfs = basisset(h2,'sto3g')
+    >>> bfs = basisset(h2,'sto-3g')
     >>> h2_singlet = rohf(h2,bfs,[1],[1])
     >>> h2_triplet = rohf(h2,bfs,[1,1],[0.5,0.5])
     """
@@ -135,7 +135,7 @@ class uhf(hamiltonian):
     >>> from pyquante2.geo.samples import oh
     >>> from pyquante2.basis.basisset import basisset
     >>> from pyquante2.scf.iterators import USCFIterator
-    >>> bfs = basisset(oh,'sto3g')
+    >>> bfs = basisset(oh,'sto-3g')
     >>> solver = uhf(oh,bfs)
     >>> ens = solver.converge(USCFIterator)
     >>> np.isclose(solver.energy,-74.146669)

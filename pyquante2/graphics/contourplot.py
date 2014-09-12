@@ -17,7 +17,7 @@ def contourplot(plane,atoms,orb,bfs,val=0,npts=50,doshow=False,
     else:
         raise Exception("Unknown contour plot plane %s" % plane)
     return
-        
+
 
 def contour_xy(atoms,orb,bfs,z=0,npts=50,doshow=False,
                title="Contour plot of pyquante orbital"):

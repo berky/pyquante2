@@ -3,26 +3,26 @@ from pyquante2 import molecule,rhf,uhf,h2,h2o,lih,basisset
 
 class test_scf(unittest.TestCase):
     def test_h2(self):
-        bfs = basisset(h2,'sto3g')
+        bfs = basisset(h2,'sto-3g')
         solver = rhf(h2,bfs)
         ens = solver.converge()
         self.assertAlmostEqual(solver.energy,-1.117099582955609,6)
 
     def test_h2_631(self):
-        bfs = basisset(h2,'6-31G**')
+        bfs = basisset(h2,'6-31gss')
         solver = rhf(h2,bfs)
         ens = solver.converge()
         self.assertAlmostEqual(solver.energy,-1.1313335790123258)
 
     def test_lih(self):
-        bfs = basisset(lih,'sto3g')
+        bfs = basisset(lih,'sto-3g')
         solver = rhf(lih,bfs)
         ens = solver.converge()
         self.assertAlmostEqual(solver.energy,-7.8607437,6)
 
     def test_lih_averaging(self):
         from pyquante2.scf.iterators import AveragingIterator
-        bfs = basisset(lih,'sto3g')
+        bfs = basisset(lih,'sto-3g')
         solver = rhf(lih,bfs)
         ens = solver.converge(AveragingIterator)
         self.assertAlmostEqual(solver.energy,-7.8607375733271088,6)
@@ -35,35 +35,35 @@ class test_scf(unittest.TestCase):
             (1,  0.00000000,     4.00000000,    -0.36628549),
             ],
                       units='Angstrom')
-        bfs = basisset(h4,'sto3g')
+        bfs = basisset(h4,'sto-3g')
         solver = rhf(h4,bfs)
         ens = solver.converge()
         self.assertAlmostEqual(solver.energy,-2.234185653441159,6)
         # This is not quite equal to 2x the h2 energy, but very close
 
     def test_h2o(self):
-        bfs = basisset(h2o,'sto3g')
+        bfs = basisset(h2o,'sto-3g')
         solver = rhf(h2o,bfs)
         ens = solver.converge()
         self.assertAlmostEqual(solver.energy,-74.959856675848712)
 
     def test_h2o_averaging(self):
         from pyquante2.scf.iterators import AveragingIterator
-        bfs = basisset(h2o,'sto3g')
+        bfs = basisset(h2o,'sto-3g')
         solver = rhf(h2o,bfs)
         ens = solver.converge(AveragingIterator)
         self.assertAlmostEqual(solver.energy,-74.959847457272502)
 
     def test_oh(self):
         from pyquante2 import oh
-        bfs = basisset(oh,'sto3g')
+        bfs = basisset(oh,'sto-3g')
         solver = uhf(oh,bfs)
         Es = solver.converge()
         self.assertAlmostEqual(solver.energy,-74.14666861386641,6)
 
     def test_li(self):
         from pyquante2 import li
-        bfs = basisset(li,'sto3g')
+        bfs = basisset(li,'sto-3g')
         solver = uhf(li,bfs)
         Es = solver.converge()
         self.assertAlmostEqual(solver.energy,-7.2301642412807379)
@@ -95,5 +95,3 @@ if __name__ == '__main__':
         debugsuite()
     else:
         runsuite()
-    
-    

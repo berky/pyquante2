@@ -63,6 +63,7 @@ setup(name='pyquante2',
                 'pyquante2.scf',
                 'pyquante2.viewer',
                 ],
+      package_data={'pyquante2.basis': ['libraries/*']},
       cmdclass = cmdclass,
       ext_modules = ext_modules,
       )
