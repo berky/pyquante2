@@ -142,7 +142,6 @@ class molecule(object):
         xmax, ymax, zmax = xmax+padding, ymax+padding, zmax+padding
         return xmin, xmax, ymin, ymax, zmin, zmax
 
-
     def stoich(self):
         """Generate a stoichiometry string for the molecule:
         >>> from pyquante2 import h2,h2o,c6h6
