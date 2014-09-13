@@ -1,0 +1,7 @@
+module uses basis sets downloaded from https://bse.pnl.gov/bse/portal as is.
+
+basis sets in NWCHEM format available from:
+svn checkout https://svn.pnl.gov/svn/nwchem/trunk/src/basis/libraries/
+
+usefull forum:
+http://www.nwchem-sw.org/index.php/Special:AWCforum/sf/id10/General_BSE_Topics.html

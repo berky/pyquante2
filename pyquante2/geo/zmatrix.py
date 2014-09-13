@@ -31,7 +31,7 @@ def parse_zmatrix(multistring):
 
 def unpack_zmat_line(words,index=0):
     def radians(ang): return ang*pi/180.0
-    
+
     sym, I,R, J,theta, K,phi = 0, 0,0, 0,0, 0,0
     sym = words[0]
     if index > 0:
@@ -48,7 +48,7 @@ def unpack_zmat_line(words,index=0):
 def z2xyz(geo):
     """
     Convert geometry from zmatrix coordinates to xyz coordinates.
-    
+
     geo is a list of tuples containing the zmatrix information.
     >>> z2xyz([['H'], ['H', 1, 0.7]])
     [['H', 0, 0, 0], ['H', 0.7, 0, 0]]
@@ -121,12 +121,12 @@ def cartesians_equal(c1,c2,tol=1e-8,verbose=True):
                 isclose(at1[3],at2[3],tol)):
             return False
     return True
-           
+
 def test():
     assert parse_zmatrix("H") == [['H']]
     assert parse_zmatrix("H\nH 1 0.7") == [['H'], ['H', 1, 0.7]]
     assert parse_zmatrix("O\nH 1 1.0\nH 1 1.0 2 90.0") == [['O'],['H',1,1.0],['H',1,1.0,2,90.0]]
-    
+
     assert cartesians_equal(z2xyz([['H']]),
                             [['H',0.0,0.0,0.0]])
     assert cartesians_equal(z2xyz([['H'], ['H', 1, 0.7]]),

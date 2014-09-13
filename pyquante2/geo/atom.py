@@ -49,7 +49,7 @@ class atom(object):
 
     def __repr__(self): return "%d %s %12.6f %12.6f %12.6f" % (
         self.atno,symbol[self.atno],self.r[0],self.r[1],self.r[2])
-    
+
     def __getitem__(self, i): return self.r[i]
 
     def xyz(self):
