@@ -71,7 +71,7 @@ class cgbf(object):
         '''Add a primitive gaussian basis function to this contracted
         Gaussian basis function.
         '''
-        from pyints.basis.pgbf import pgbf
+        from pyquante2.basis.pgbf import pgbf
 
         self.pgbfs.append(pgbf(expn, self.origin, self.powers))
         self.coefs.append(coef)
