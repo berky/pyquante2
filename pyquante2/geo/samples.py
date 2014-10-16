@@ -1,70 +1,68 @@
-"""
-A collection of molecules for testing and fun.
+"""A collection of molecules for testing and fun.
 
 >>> h
 Stoichiometry = H, Charge = 0, Multiplicity = 2
 1 H     0.000000     0.000000     0.000000
-
 """
 
-from pyquante2.geo.molecule import molecule,read_xyz_lines
+from pyquante2.geo.molecule import molecule, read_xyz_lines
 
-h = molecule([(1,0,0,0)],name='Hydrogen')
+h = molecule([(1, 0, 0, 0)], name='Hydrogen')
 
-h2 = molecule([(1,  0.00000000,     0.00000000,     0.36628549),
-               (1,  0.00000000,     0.00000000,    -0.36628549)],
+h2 = molecule([(1, 0.00000000, 0.00000000,  0.36628549),
+               (1, 0.00000000, 0.00000000, -0.36628549)],
               units='Angstrom',
               name='Hydrogen')
 
-h2o = molecule([(8,   0.00000000,     0.00000000,     0.04851804),
-                (1,   0.75300223,     0.00000000,    -0.51923377),
-                (1,  -0.75300223,     0.00000000,    -0.51923377)],
+h2o = molecule([(8,  0.00000000,  0.00000000,  0.04851804),
+                (1,  0.75300223,  0.00000000, -0.51923377),
+                (1, -0.75300223,  0.00000000, -0.51923377)],
                units='Angstrom',
                name='Water')
 
-oh = molecule([(8,  0.00000000,     0.00000000,    -0.08687037),
-               (1,  0.00000000,     0.00000000,     0.86464814)],
+oh = molecule([(8,  0.00000000,  0.00000000, -0.08687037),
+               (1,  0.00000000,  0.00000000,  0.86464814)],
               units='Angstrom',
               multiplicity=2,
               name='Hydroxide')
-he = molecule(atomlist = [(2,0,0,0)],name='Helium')
-he_triplet = molecule(atomlist = [(2,0,0,0)],name='Helium',multiplicity=3)
-ne = molecule(atomlist = [(10,0,0,0)],name='Neon')
-ar = molecule(atomlist = [(18,0,0,0)],name='Argon')
-li = molecule(atomlist = [(3,0,0,0)], multiplicity=2,name='Lithium')
-li_p = molecule(atomlist = [(3,0,0,0)],charge=1,name="Li+")
-li_m = molecule(atomlist = [(3,0,0,0)],charge=-1,name="Li-")
+he = molecule(atomlist = [(2, 0, 0, 0)], name='Helium')
+he_triplet = molecule(atomlist = [(2, 0, 0, 0)], name='Helium', multiplicity=3)
+ne = molecule(atomlist = [(10, 0, 0, 0)], name='Neon')
+ar = molecule(atomlist = [(18, 0, 0, 0)], name='Argon')
+li = molecule(atomlist = [(3, 0, 0, 0)],  multiplicity=2, name='Lithium')
+li_p = molecule(atomlist = [(3, 0, 0, 0)], charge=1, name="Li+")
+li_m = molecule(atomlist = [(3, 0, 0, 0)], charge=-1, name="Li-")
 
-lih = molecule([(3,    0.00000000,     0.00000000,    -0.53999756),
-                (1,    0.00000000,     0.00000000,     1.08999756)],
+lih = molecule([(3,  0.00000000,  0.00000000, -0.53999756),
+                (1,  0.00000000,  0.00000000,  1.08999756)],
                units='Angstrom',
                name="LiH")
-             
-co = molecule([(6,  0.00000000,     0.00000000,    -0.63546711),
-               (8,  0.00000000,     0.00000000,     0.47832425)],
+
+co = molecule([(6,  0.00000000,  0.00000000, -0.63546711),
+               (8,  0.00000000,  0.00000000,  0.47832425)],
               units='Angstrom',
               name="CO")
 
-ch4 = molecule([(6,   0.00000000,     0.00000000,     0.00000000),
-                (1,   0.62558332,    -0.62558332,     0.62558332),
-                (1,  -0.62558332,     0.62558332,     0.62558332),
-                (1,   0.62558332,     0.62558332,    -0.62558332),
-                (1,  -0.62558332,    -0.62558332,    -0.62558332)],
+ch4 = molecule([(6,  0.00000000,  0.00000000,  0.00000000),
+                (1,  0.62558332, -0.62558332,  0.62558332),
+                (1, -0.62558332,  0.62558332,  0.62558332),
+                (1,  0.62558332,  0.62558332, -0.62558332),
+                (1, -0.62558332, -0.62558332, -0.62558332)],
                units='Angstrom',
                name="CH4")
 
-c6h6 = molecule([ (6,  0.98735329,     0.98735329,     0.00000000),
-                  (6,  1.34874967,    -0.36139639,     0.00000000),
-                  (6,  0.36139639,    -1.34874967,     0.00000000),
-                  (6, -0.98735329,    -0.98735329,     0.00000000),
-                  (6, -1.34874967,     0.36139639,     0.00000000),
-                  (6, -0.36139639,     1.34874967,     0.00000000),
-                  (1,  1.75551741,     1.75551741,     0.00000000),
-                  (1,  2.39808138,    -0.64256397,     0.00000000),
-                  (1,  0.64256397,    -2.39808138,     0.00000000),
-                  (1, -1.75551741,    -1.75551741,     0.00000000),
-                  (1, -2.39808138,     0.64256397,     0.00000000),
-                  (1, -0.64256397,     2.39808138,     0.00000000)],
+c6h6 = molecule([(6,  0.98735329,  0.98735329,  0.00000000),
+                 (6,  1.34874967, -0.36139639,  0.00000000),
+                 (6,  0.36139639, -1.34874967,  0.00000000),
+                 (6, -0.98735329, -0.98735329,  0.00000000),
+                 (6, -1.34874967,  0.36139639,  0.00000000),
+                 (6, -0.36139639,  1.34874967,  0.00000000),
+                 (1,  1.75551741,  1.75551741,  0.00000000),
+                 (1,  2.39808138, -0.64256397,  0.00000000),
+                 (1,  0.64256397, -2.39808138,  0.00000000),
+                 (1, -1.75551741, -1.75551741,  0.00000000),
+                 (1, -2.39808138,  0.64256397,  0.00000000),
+                 (1, -0.64256397,  2.39808138,  0.00000000)],
                 units='Angstrom',
                 name="Benzene")
 
@@ -91,7 +89,7 @@ H   -7.064459801   -1.001233459    4.005530357
 H   -2.168872356    2.181503534    1.204643130
 H   -1.410930753    0.919331372    2.179908276
 H   -2.084415674    0.535852194    0.569538891"""
-aspirin = read_xyz_lines(aspirin_dat.splitlines(),name='Aspirin')
+aspirin = read_xyz_lines(aspirin_dat.splitlines(), name='Aspirin')
 
 caffeine_dat = """\
 H      -3.3804130    -1.1272367     0.5733036
@@ -118,7 +116,7 @@ N       2.2861252     0.9968439    -0.2440298
 H      -0.1687028     4.0436553     0.9301094
 H       0.3535322     3.2979060     2.5177747
 H      -1.2074498     2.7537592     1.7203047"""
-caffeine = read_xyz_lines(caffeine_dat.splitlines(),name="Caffeine")
+caffeine = read_xyz_lines(caffeine_dat.splitlines(), name="Caffeine")
 
 hmx_dat = """\
    N  0.5680149949  2.6293711200  0.3736776847
@@ -149,7 +147,7 @@ hmx_dat = """\
    H -2.7633740401  0.1883945774  0.7479214905
    H  0.4507923100 -0.4781294376  1.9256045749
    H  0.8527197221 -1.5046000931  0.5192138085"""
-hmx = read_xyz_lines(hmx_dat.splitlines(),name="HMX")
+hmx = read_xyz_lines(hmx_dat.splitlines(), name="HMX")
 
 petn_dat = """\
    C  0.1410793535  0.4581345076  0.2201593117
@@ -173,7 +171,7 @@ petn_dat = """\
    O -1.1067939800 -2.6688759860 -3.6166286008
    O -2.5743247911  3.6561803864  1.7376540608
    O -1.2125337042  2.2041767152  0.8590609937"""
-petn = read_xyz_lines(petn_dat.splitlines(),name="PETN")
+petn = read_xyz_lines(petn_dat.splitlines(), name="PETN")
 
 prozac_dat = """\
 C      -4.204150677    2.072559834    2.445252657
@@ -216,7 +214,7 @@ H     -0.022803972   -2.102428675    0.004875974
 H     -0.427532613   -2.834338427   -2.281645775
 H     -1.025909305   -1.204776525   -3.980842352
 H     -1.123792887    1.146540284   -3.432668924"""
-prozac = read_xyz_lines(prozac_dat.splitlines(),name="Prozac")
+prozac = read_xyz_lines(prozac_dat.splitlines(), name="Prozac")
 
 rdx_dat = """\
    N  0.6718881059  0.0182651659  1.1639927098
@@ -240,9 +238,9 @@ rdx_dat = """\
    H  1.6069882485 -1.4950329010  0.0000000000
    H -0.8028142165 -1.4961047851  1.3888481204
    H -1.2010991605  0.1025912411  2.0806078091"""
-rdx = read_xyz_lines(rdx_dat.splitlines(),name="RDX")
+rdx = read_xyz_lines(rdx_dat.splitlines(), name="RDX")
 
-taxol_dat="""\
+taxol_dat = """\
 C    2.5071   -0.9379    0.6914
 C    3.3433   -0.1915   -0.3266
 C    2.4181    0.2295   -1.5086
@@ -323,7 +321,7 @@ H   -2.9363   -1.9653    1.6271
 H   -4.8263   -1.5744    3.1478
 H   -6.9749   -0.7523    2.2571
 H   -7.2205   -0.3311   -0.1599"""
-taxol = read_xyz_lines(taxol_dat.splitlines(),name="Taxol")
+taxol = read_xyz_lines(taxol_dat.splitlines(), name="Taxol")
 
 tylenol_dat = """\
 O      -1.713616610    1.243716955    0.736445725
@@ -346,7 +344,7 @@ H      -0.959591031   -4.633766651    1.537439585
 H       0.701575160   -6.423584938    2.174993753
 H       0.163852051   -6.703066826    0.504316807
 H       1.894107819   -6.647564888    0.883226514"""
-tylenol = read_xyz_lines(tylenol_dat.splitlines(),name="Tylenol")
+tylenol = read_xyz_lines(tylenol_dat.splitlines(), name="Tylenol")
 
 viagara_dat = """\
 N   -3.4932   -1.8950    0.1795
@@ -412,9 +410,9 @@ H    1.4381    5.6884   -0.5419
 H    2.4010    4.1167   -2.2238
 H    1.3671    3.1920   -1.0766
 H    3.1625    3.1270   -0.9362"""
-viagara = read_xyz_lines(viagara_dat.splitlines(),name="Viagara")
+viagara = read_xyz_lines(viagara_dat.splitlines(), name="Viagara")
 
-zoloft_dat="""\
+zoloft_dat = """\
 C    -3.4189    1.6783    0.2712
 C    -2.3505    0.8226    0.1761
 C    -2.5442   -0.5245   -0.0609
@@ -452,12 +450,8 @@ H    -1.2910    2.9239   -1.0725
 H     0.0961    4.5381   -0.0860
 H     0.9405    3.1579   -0.3043
 H     0.3918    3.5529    1.1819"""
-zoloft = read_xyz_lines(zoloft_dat.splitlines(),name="Zoloft")
-
-
-
+zoloft = read_xyz_lines(zoloft_dat.splitlines(), name="Zoloft")
 
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
-
