@@ -7,3 +7,6 @@ profile.out
 prof
 docs/_build
 .svn/*
+
+# Python
+*.py[co]
